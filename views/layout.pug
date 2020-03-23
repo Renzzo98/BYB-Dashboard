@@ -1,0 +1,33 @@
+block variables
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        link(rel="shortcut icon", href="/favicon.ico")
+        meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(name="theme-color", content="#000000")
+        title #{title} | TEMPLATE
+        link(rel="stylesheet" href="/style.css")
+        link(rel="stylesheet" href="/css/fontawesome-all.min.css")
+        link(rel="stylesheet" href="/css/main.css")
+        link(rel="stylesheet" href="/css/noscript.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js")
+        script
+            include ../assets/js/source/breakpoints.min.js
+        script
+            include ../assets/js/source/browser.min.js
+        script
+            include ../assets/js/source/jquery.min.js
+        script
+            include ../assets/js/source/main.js
+        script
+            include ../assets/js/source/util.js
+        script
+            include ../assets/js/sidenav.js
+        script
+            include ../assets/js/apiCalls.js
+        script
+            include ../assets/js/skycons.js
+    body(class="is-preload")
+        div#root
+            block layout-content

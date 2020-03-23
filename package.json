@@ -1,0 +1,31 @@
+{
+  "name": "personal_dashboard",
+  "version": "1.0.0",
+  "description": "Just a foundation I can use to start a new Express Web App",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Renzzo98/PRIVATE_DASHBOARD.git"
+  },
+  "keywords": [],
+  "author": "Hugo Renzzo Olcese",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Renzzo98/PRIVATE_DASHBOARD/issues"
+  },
+  "homepage": "https://github.com/Renzzo98/PRIVATE_DASHBOARD#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "nodemon": "^2.0.2",
+    "skycons": "^1.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4",
+    "request": "^2.88.2"
+  }
+}
