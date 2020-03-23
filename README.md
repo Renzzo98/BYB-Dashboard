@@ -1,6 +1,6 @@
-# Template for Express Web App
+# Personal Dashboard
 
-Just a foundation I can use to start a new Express Web App
+Only for me. Sorry
 
 ## Getting Started
 
