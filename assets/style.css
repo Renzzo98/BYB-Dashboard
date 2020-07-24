@@ -52,6 +52,44 @@ body {
 }
 
 
+@font-face {
+  font-family: 'cyberthroneregular';
+  src: url('./fonts//cyber_font/cyberthrone-webfont.woff2') format('woff2'),
+       url('./fonts/cyber_font/cyberthrone-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'cyberjunkiesregular';
+  src: url('./fonts/cyber_junkies/cyberjunkies-webfont.woff2') format('woff2'),
+       url('./fonts/cyber_junkies/cyberjunkies-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'cyberjunkiesitalic';
+  src: url('./fonts/cyber_junkies/cyberjunkies_italic-webfont.woff2') format('woff2'),
+       url('./fonts/cyber_junkies/cyberjunkies_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+.name_title{
+  font-family: 'cyberthroneregular', Arial, Helvetica, sans-serif;
+  font-size: 5.5em;
+}
+
 @media only screen 
     and (device-width : 375px) 
     and (device-height : 812px) 
@@ -86,6 +124,10 @@ body {
     font-size: 20px;
   }
   
+  .name_title{
+    font-family: 'cyberthroneregular', Arial, Helvetica, sans-serif;
+    font-size: 3.3em;
+  }
 
 }
 

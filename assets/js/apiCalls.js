@@ -8,9 +8,10 @@ fetch("https://type.fit/api/quotes")
       document.getElementById("InsQuote").innerHTML = data[randQuote].text;
 });
 
-let apiKey = '516803d00f5ca53e18bb0b65b8cb451a';
-let zipCode = '11501'
-let CC = 'us'
+
+import { apiKey } from '../../config/key.js';
+let zipCode = '11501';
+let CC = 'us';
 let url = 'http://api.openweathermap.org/data/2.5/weather?zip=' + zipCode + ',' + CC + '&appid=' + apiKey;
 
 

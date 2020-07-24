@@ -1,6 +1,6 @@
 # QUICK links Dashboard
 
-An Quick Dashboard I made to host all of my recently used links and resources. AAnyone can use it and update it if you want. Just give credit. Best of luck
+An Quick Dashboard I made to host all of my recently used links and resources. Anyone can use it and update it if you want. Just give credit. Best of luck
 
 Currently running on gh-pages.
 
@@ -8,75 +8,26 @@ Currently running on gh-pages.
 
 Simply Run the run shell to get the site running on localhost
 
-### Prerequisites
+## Customize
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+Simply use pug views to customize the links and dashboard to your own liking!
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+* [NodeJS](https://nodejs.org/en/) - The backend framework used
+* [HTML5](https://html.com/) - The frontend framework used
+* [CSS](https://www.w3.org/Style/CSS/Overview.en.html) - Used to style the HTML pages
+* [PUG](https://pugjs.org/api/getting-started.html) - The Templating Engine used to generate HTML pages
+* [Javascript](https://www.javascript.com/) - Used for the site' script and animations
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [Github](http://github.com) for versioning. For more information available, see the [tags on this repository](https://github.com/about). 
 
 ## Authors
 
-* **Hugo Renzzo Olcese** - *Initial work* - [Renzzo98](https://github.com/Renzzo98)
+* **Hugo Renzzo Olcese** - *All work* - [Renzzo98](https://github.com/Renzzo98)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
