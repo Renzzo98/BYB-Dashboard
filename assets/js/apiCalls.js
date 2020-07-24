@@ -124,12 +124,10 @@ function formatIconURL(initIcon){
 
 
 function animatedIcon(weatherCond, weatherColor){
-    console.log("COLOR" + weatherColor);
     var skycons = new Skycons({"color": weatherColor});
     // on Android, a nasty hack is needed: {"resizeClear": true}
 
     // you can add a canvas by it's ID...
-    console.log("CUR WEATHER: " + weatherCond);
     skycons.add("icon1", weatherCond);
 
     // if you're using the Forecast API, you can also supply
