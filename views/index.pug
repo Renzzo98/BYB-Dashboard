@@ -1,167 +1,159 @@
-block variables
-doctype html
-html
-    head
-        meta(charset="utf-8")
-        link(rel="shortcut icon", href="/favicon.ico")
-        meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
-        meta(name="theme-color", content="#000000")
-        title #{title} | TEMPLATE
-        link(rel="stylesheet" href="/style.css")
-        link(rel="stylesheet" href="/css/fontawesome-all.min.css")
-        link(rel="stylesheet" href="/css/main.css")
-        link(rel="stylesheet" href="/css/noscript.css")
-        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js")
-        script
-            include ../assets/js/source/breakpoints.min.js
-        script
-            include ../assets/js/source/browser.min.js
-        script
-            include ../assets/js/source/jquery.min.js
-        script
-            include ../assets/js/source/main.js
-        script
-            include ../assets/js/source/util.js
-        script
-            include ../assets/js/sidenav.js
-        script
-            include ../assets/js/apiCalls.js
-        script
-            include ../assets/js/skycons.js
-    body(class="is-preload")
-        div#root
-            div.View
-                // Wrapper
-                div(id="wrapper")
-                    // HEADER
-                    header(id="header")
-                        div(class="inner")
-                            // LOGO
-                            a(href="#" class="icon solid fa-apple-alt fa-2x")
-                                    span(class="title") DASHBOARD
-                            // Nav
-                            nav
-                                ul
-                                    li
-                                        a(onclick='openNav()') Menu
-                    
-                    // MENU
-                    div(id="mySidenav" class="sidenav")
-                        a(href="javascript:void(0)" class="closebtn" onclick="closeNav()") &times; 
-                        ul
-                            h2 Menu
-                            a(href="/") Home
-                            a(href="#shortcuts") Shortcuts
+extends layout
 
-                    // MAIN
-                    div(id="main")
-                        div(class="inner")
-                            header
-                                h2 WELCOME
-                                p
-                                    h1 HUGO RENZZO OLCESE
-                                b Currently Feels Like:
-                                    span(class="image right")
-                                            canvas(id="icon1" width="200" height="200")
-                                br
-                                p   
-                                    p(id="tempVal" style="font-size: 50px") 0.0
-                                p(id="InsQuote" style="font-size: 30px") How are you?
-                            br
-                            h2 Quick Links:
-                            section
-                                ul(class="icons")
-                                    li
-                                        a(href="https://www.youtube.com" class="icon brands style2 fa-youtube fa-lg")
-                                            span(class="label") Youtube
-                                    li
-                                        a(href="https://www.reddit.com" class="icon brands style2 fa-reddit-alien fa-lg")
-                                            span(class="label") Reddit
-                                    li
-                                        a(href="https://flipboard.com" class="icon brands style2 fa-flipboard fa-lg")
-                                            span(class="label") Flipboard
-                                    li
-                                        a(href="https://github.com/Renzzo98?tab=repositories" class="icon brands style2 fa-github fa-lg")
-                                            span(class="label") Github
-                                    li
-                                        a(href="https://mail.google.com/mail/u/1/#inbox" class="icon brands style2 fa-google fa-lg")
-                                            span(class="label") Gmail
-                                    li
-                                        a(href="https://drive.google.com/drive/u/1/my-drive" class="icon brands style2 fa-google-drive fa-lg")
-                                            span(class="label") Google Drive
-                                    li
-                                        a(href="https://www.amazon.com" class="icon brands style2 fa-amazon fa-lg")
-                                            span(class="label") Amazon
-                                    li
-                                        a(href="https://dribbble.com" class="icon brands style2 fa-dribbble fa-lg")
-                                            span(class="label") Dribbble
-                                    li
-                                        a(href="https://www.linkedin.com/feed/" class="icon brands style2 fa-linkedin fa-lg")
-                                            span(class="label") LinkedIn
-                                    li
-                                        a(href="https://www.messenger.com/t/enialleatsim" class="icon brands style2 fa-facebook-messenger fa-lg")
-                                            span(class="label") Messenger
-                                    li
-                                        a(href="https://www.facebook.com" class="icon brands style2 fa-facebook-f fa-lg")
-                                            span(class="label") Facebook
-                                    li
-                                        a(href="https://www.twitch.tv" class="icon brands style2 fa-twitch fa-lg")
-                                            span(class="label") Twitch
-                                    li
-                                        a(href="https://twitter.com/home" class="icon brands style2 fa-twitter fa-lg")
-                                            span(class="label") Twitter
-                                    li
-                                        a(href="#" class="icon brands style2 fa-instagram fa-lg")
-                                            span(class="label") Instagram
-                            br
-                            br
-                            h2(id="shortcuts") Shortcuts:
-                            section(class="tiles")
-                                article(class="style6")
-                                    span(class="image")
-                                        img(src="images/pic01.jpg")
-                                    a(href="https://login.hofstra.edu/cas-web/login?service=https%3A%2F%2Fmy.hofstra.edu%2Fc%2Fportal%2Flogin")
-                                        h2 HOFSTRA PORTAL
-                                        div(class="content")
-                                            p The Offical Hofstra University Portal
-                                article(class="style1")
-                                    span(class="image")
-                                        img(src="images/pic01.jpg")
-                                    a(href="https://toggl.com/app/timer")
-                                        h2 Toggl
-                                        div(class="content")
-                                            p Programming Task Timer
-                                article(class="style2")
-                                    span(class="image")
-                                        img(src="images/pic02.jpg")
-                                    a(href="https://renzzo98.github.io/HolaHugo/")
-                                        h2 HOLA UGO
-                                        div(class="content")
-                                            p My Official Page
-                                article(class="style3")
-                                    span(class="image")
-                                        img(src="images/pic04.jpg")
-                                    a(href="https://www.pexels.com/")
-                                        h2 PEXELS
-                                        div(class="content")
-                                            p Site for High-Res Stock Photos
-                                article(class="style4")
-                                    span(class="image")
-                                        img(src="images/pic03.jpg")
-                                    a(href="https://html5up.net/")
-                                        h2 HTML5UP
-                                        div(class="content")
-                                            p Great HTML5 Templates
-                                article(class="style5")
-                                    span(class="image")
-                                        img(src="images/pic05.jpg")
-                                    a(href="https://undraw.co/illustrations")
-                                        h2 UNDRAW
-                                        div(class="content")
-                                            p Great Pre-drawn Illustration for Sites
+block layout-content
+    div.View
+        // Wrapper
+        div(id="wrapper")
+            // HEADER
+            header(id="header" style="margin-bottom: 30px")
+                div(class="inner")
+                    // LOGO
+                    a(href="#" class="icon solid fa-dove fa-2x")
+                        span(class="title" style="margin-left: 10px") DASHBOARD
+                    //- // Nav
+                    //- nav
+                    //-     ul
+                    //-         li
+                    //-             a(onclick='openNav()') Menu
+            
+            // MENU
+            div(id="mySidenav" class="sidenav")
+                a(href="javascript:void(0)" class="closebtn" onclick="closeNav()") &times; 
+                ul
+                    h2 Menu
+                    a(href="/") Home
+                    a(href="#shortcuts") Shortcuts
+
+            // MAIN
+            div(id="main")
+                div(class="inner")
+                    header
+                        h2 WELCOME
+                        p
+                            h1(style="font-style: italic") HUGO RENZZO OLCESE
+                        b Currently Feels Like:
+                            span(class="image right" id="image_right")
+                                    canvas(id="icon1" width="300" height="300")
+                        br
+                        p   
+                            p(id="tempVal") 0.0
+                        p(id="InsQuote") How are you?
+                    br
                     
-                    // FOOTER
-                    footer(id="footer")
-                        div(class="inner")
-                            ul(class="copyright")
-                                li Designed by Hugo. All rights reserved.
+                    h2 Quick Links:
+                    section
+                        ul(class="icons")
+                            li
+                                a(href="https://github.com/Renzzo98?tab=repositories" class="icon brands style2 fa-github fa-lg")
+                                    span(class="label") Github
+                            li
+                                a(href="https://www.youtube.com" class="icon brands style2 fa-youtube fa-lg")
+                                    span(class="label") Youtube
+                            li
+                                a(href="https://www.reddit.com" class="icon brands style2 fa-reddit-alien fa-lg")
+                                    span(class="label") Reddit
+                            li
+                                a(href="https://flipboard.com" class="icon brands style2 fa-flipboard fa-lg")
+                                    span(class="label") Flipboard
+                            //- li
+                            //-     a(href="https://mail.google.com/mail/u/1/#inbox" class="icon brands style2 fa-google fa-lg")
+                            //-         span(class="label") Gmail
+                            //- li
+                            //-     a(href="https://drive.google.com/drive/u/1/my-drive" class="icon brands style2 fa-google-drive fa-lg")
+                            //-         span(class="label") Google Drive
+                            //- li
+                            //-     a(href="https://www.amazon.com" class="icon brands style2 fa-amazon fa-lg")
+                            //-         span(class="label") Amazon
+                            //- li
+                            //-     a(href="https://dribbble.com" class="icon brands style2 fa-dribbble fa-lg")
+                            //-         span(class="label") Dribbble
+                            //- li
+                            //-     a(href="https://www.linkedin.com/feed/" class="icon brands style2 fa-linkedin fa-lg")
+                            //-         span(class="label") LinkedIn
+                            //- li
+                            //-     a(href="https://www.messenger.com/t/enialleatsim" class="icon brands style2 fa-facebook-messenger fa-lg")
+                            //-         span(class="label") Messenger
+                            //- li
+                            //-     a(href="https://www.facebook.com" class="icon brands style2 fa-facebook-f fa-lg")
+                            //-         span(class="label") Facebook
+                            //- li
+                            //-     a(href="https://www.twitch.tv" class="icon brands style2 fa-twitch fa-lg")
+                            //-         span(class="label") Twitch
+                            //- li
+                            //-     a(href="https://twitter.com/home" class="icon brands style2 fa-twitter fa-lg")
+                            //-         span(class="label") Twitter
+                            //- li
+                            //-     a(href="#" class="icon brands style2 fa-instagram fa-lg")
+                            //-         span(class="label") Instagram
+                    br
+                    h2(id="shortcuts") Useful Links:
+                    section(class="tiles")
+                        article(class="style6")
+                            span(class="image")
+                                img(src="images/pic06.jpg")
+                            a(href="https://fontawesome.com/icons?d=gallery&m=free")
+                                h2 FONT AWESOME ICONS
+                                div(class="content")
+                                    p An amazing icons package for Web Dev
+                        article(class="style1")
+                            span(class="image")
+                                img(src="images/pic01.jpg")
+                            a(href="https://toggl.com/app/timer")
+                                h2 Toggl
+                                div(class="content")
+                                    p Programming Task Timer
+                        article(class="style3")
+                            span(class="image")
+                                img(src="images/pic04.jpg")
+                            a(href="https://www.pexels.com/")
+                                h2 PEXELS
+                                div(class="content")
+                                    p Site for High-Res Stock Photos
+                        article(class="style4")
+                            span(class="image")
+                                img(src="images/pic03.jpg")
+                            a(href="https://html5up.net/")
+                                h2 HTML5UP
+                                div(class="content")
+                                    p Great HTML5 Templates                        
+                        article(class="style5")
+                            span(class="image")
+                                img(src="images/pic05.jpg")
+                            a(href="https://undraw.co/illustrations")
+                                h2 UNDRAW
+                                div(class="content")
+                                    p Great Pre-drawn Illustration for Sites
+                        article(class="style6")
+                            span(class="image")
+                                img(src="images/pic06.jpg")
+                            a(href="https://undraw.co/illustrations")
+                                h2 IFTTT
+                                div(class="content")
+                                    p Great Resoruce for IOT Projects (and Pranks)
+                        article(class="style1")
+                            span(class="image")
+                                img(src="images/pic01.jpg")
+                            a(href="https://carbon.now.sh/")
+                                h2 CARBON
+                                div(class="content")
+                                    p To Make Code Snippets Presentable
+                        article(class="style2")
+                            span(class="image")
+                                img(src="images/pic02.jpg")
+                            a(href="https://renzzo98.github.io/HolaHugo/")
+                                h2 HOLA UGO
+                                div(class="content")
+                                    p My Official Page
+                        article(class="style6")
+                            span(class="image")
+                                img(src="images/pic01.jpg")
+                            a(href="https://login.hofstra.edu/cas-web/login?service=https%3A%2F%2Fmy.hofstra.edu%2Fc%2Fportal%2Flogin")
+                                h2 HOFSTRA PORTAL
+                                div(class="content")
+                                    p The Offical Hofstra University Portal
+            
+            // FOOTER
+            footer(id="footer")
+                div(class="inner")
+                    ul(class="copyright")
+                        li Designed by Hugo Renzzo Olcese. All rights reserved.

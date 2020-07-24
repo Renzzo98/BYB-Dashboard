@@ -43,3 +43,49 @@ body {
   height: 150px;
 }
 
+#tempVal{
+  font-size: 50px;
+}
+
+#InsQuote{
+  font-size: 30px;
+}
+
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3)
+    and (orientation: landscape) {
+
+  .styleName {
+      height: 60em
+  }
+  
+}
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) {
+
+  #image_right {
+      max-width: 100%;
+  }
+  
+  #icon1{
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  #tempVal {
+    font-size: 35px;
+  }
+
+  #InsQuote{
+    font-size: 20px;
+  }
+  
+
+}
+

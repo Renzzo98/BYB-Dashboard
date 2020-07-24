@@ -19,83 +19,94 @@ fetch(url)
     return response.json();
   })
   .then(function(data) {
-      console.log(data);
       let temp = data.main.feels_like;
-      temp = convertToCelsius(temp);
-      changeTempText(temp);
+      updateTempVal(temp);
       let weatherCond = data.weather[0].main;
       let icon = data.weather[0].icon;
-      console.log("Cond: " + weatherCond);
       determineWeatherIcon(weatherCond, icon);
-      animatedIcon(CurWeather);
+      animatedIcon(CurWeather, weatherColor);
       
 });
 
 let CurWeather = "";
-
+let weatherColor = "";
 
 window.addEventListener("load", function(){
     //animatedIcon(CurWeather);
 });
 
-function convertToCelsius(kelvin){
+function updateTempVal(kelvin){
     var temp = parseInt(kelvin);
     var celsius = temp - 273.15;
     celsius = Math.trunc(celsius);
-    var result = celsius.toString() + " C";
+    var fahrenheit = Math.round(celsius + 33.8);
+    var cel_value = celsius.toString() + " C";
+    var fah_value = fahrenheit.toString() + " F";
     //console.log("TEMP: " + result)
-    return result;
+    var final_val = cel_value + " | " + fah_value;
+    document.getElementById("tempVal").innerHTML = final_val;
 }
 
-function changeTempText(tempVal){
-    document.getElementById("tempVal").innerHTML = tempVal;
-}
+
 
 function determineWeatherIcon(cond, icon){
-    console.log("HIT");
     switch (icon){
         case "01d":
+            weatherColor = "GOLD";
             CurWeather = "clear-day";
             break;
         case "01n":
+            weatherColor = "MIDNIGHTBLUE";
             CurWeather = "clear-night";
             break;
         case "02d":
+            weatherColor = "MOCCASIN";
             CurWeather = "partly-cloudy-day";
             break;
         case "03d":
+            weatherColor = "MOCCASIN";
             CurWeather = "partly-cloudy-day";
             break;
         case "04d":
+            weatherColor = "MOCCASIN";
             CurWeather = "partly-cloudy-day";
             break;
         case "02n":
+            weatherColor = "REBECCAPURPLE";
             CurWeather = "partly-cloudy-night";
             break;
         case "03n":
+            weatherColor = "REBECCAPURPLE";
             CurWeather = "partly-cloudy-night";
             break;
         case "04n":
+            weatherColor = "REBECCAPURPLE";
             CurWeather = "partly-cloudy-night";
             break;
     }   
     switch(cond){
         case "Rain":
+            weatherColor = "SLATEBLUE";
             CurWeather = "rain";
             break;
         case "Thunderstorm":
+            weatherColor = "PERU";
             CurWeather = "cloudy";
             break;
         case "Drizzle":
+            weatherColor = "SKYBLUE";
             CurWeather = "sleet";
             break;
         case "Snow":
+            weatherColor = "SNOW";
             CurWeather = "snow";
             break;
         case "Wind":
+            weatherColor = "LAVENDER";
             CurWeather = "wind";
             break;
         case "Fog":
+            weatherColor = "LAVENDER";
             CurWeather = "fog";
             break;
     }
@@ -112,8 +123,9 @@ function formatIconURL(initIcon){
 }
 
 
-function animatedIcon(weatherCond){
-    var skycons = new Skycons({"color": "pink"});
+function animatedIcon(weatherCond, weatherColor){
+    console.log("COLOR" + weatherColor);
+    var skycons = new Skycons({"color": weatherColor});
     // on Android, a nasty hack is needed: {"resizeClear": true}
 
     // you can add a canvas by it's ID...
