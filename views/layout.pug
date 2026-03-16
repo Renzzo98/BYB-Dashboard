@@ -11,7 +11,7 @@ html
         link(rel="stylesheet" href="/css/fontawesome-all.min.css")
         link(rel="stylesheet" href="/css/main.css")
         link(rel="stylesheet" href="/css/noscript.css")
-        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js")
    
     body(class="is-preload")
         div#root
@@ -33,7 +33,13 @@ html
         script
             include ../assets/js/apiCalls.js
         script
+            include ../assets/js/githubStats.js
+        script
+            include ../assets/js/commitGraph.js
+        script
             include ../assets/js/skycons.js
-        
+        script
+            include ../assets/js/darkMode.js
+
         script(src="https://kit.fontawesome.com/9459603363.js" crossorigin="anonymous")
         

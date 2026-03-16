@@ -4,6 +4,7 @@
   "description": "Just a foundation I can use to start a new Express Web App",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon ./index.js",
     "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
   },
@@ -24,6 +25,7 @@
     "skycons": "^1.0.0"
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.1",
     "pug": "^2.0.4",
     "request": "^2.88.2"

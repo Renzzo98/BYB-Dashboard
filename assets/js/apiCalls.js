@@ -1,112 +1,162 @@
-fetch("https://type.fit/api/quotes")
+// Bible verses for daily inspiration
+const bibleVerses = [
+  "For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope. - Jeremiah 29:11",
+  "Trust in the Lord with all your heart and lean not on your own understanding. - Proverbs 3:5",
+  "I can do all things through Christ who strengthens me. - Philippians 4:13",
+  "The Lord is my shepherd; I shall not want. - Psalm 23:1",
+  "Come to me, all you who are weary and burdened, and I will give you rest. - Matthew 11:28",
+  "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. - Philippians 4:6",
+  "For God so loved the world that he gave his one and only Son. - John 3:16",
+  "Be strong and courageous. Do not be afraid or terrified because of them, for the Lord your God goes with you. - Deuteronomy 31:6",
+  "What, then, shall we say in response to these things? If God is for us, who can be against us? - Romans 8:31",
+  "Therefore do not worry about tomorrow, for tomorrow will worry about itself. - Matthew 6:34",
+  "Blessed is the one who trusts in the Lord, whose confidence is in him. - Jeremiah 17:7",
+  "The Lord hears his people when they call to him for help. - Psalm 34:17",
+  "Peace I leave with you; my peace I give you. I do not give to you as the world gives. - John 14:27",
+  "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. - Matthew 7:7",
+  "Let all that you do be done in love. - 1 Corinthians 16:14",
+  "Rejoice in the Lord always. I will say it again: Rejoice! - Philippians 4:4",
+  "Love the Lord your God with all your heart and with all your soul and with all your mind. - Matthew 22:37",
+  "For the Lord will not cast off his people, nor will he forsake his inheritance. - Psalm 94:14",
+  "I have told you all this, so that you may have peace in me. Here on earth you will have many trials and sorrows. But take heart, because I have overcome the world. - John 16:33",
+  "Casting all your anxieties on him, because he cares for you. - 1 Peter 5:7"
+];
+
+function displayRandomBibleVerse() {
+  const randomIndex = Math.floor(Math.random() * bibleVerses.length);
+  document.getElementById("InsQuote").innerHTML = bibleVerses[randomIndex];
+}
+
+displayRandomBibleVerse();
+
+fetch('/api/weather')
   .then(function(response) {
     return response.json();
   })
   .then(function(data) {
-      var randQuote = Math.floor((Math.random() * 1642)+ 0)
-      //console.log(data[randQuote]);
-      document.getElementById("InsQuote").innerHTML = data[randQuote].text;
-});
-
-let apiKey = '516803d00f5ca53e18bb0b65b8cb451a';
-let zipCode = '11501'
-let CC = 'us'
-let url = 'http://api.openweathermap.org/data/2.5/weather?zip=' + zipCode + ',' + CC + '&appid=' + apiKey;
-
-
-fetch(url)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
+      console.log("Weather data:", data);
       let temp = data.main.feels_like;
       updateTempVal(temp);
       let weatherCond = data.weather[0].main;
       let icon = data.weather[0].icon;
+      console.log("Weather condition:", weatherCond, "Icon:", icon);
       determineWeatherIcon(weatherCond, icon);
+      console.log("Skycons type:", CurWeather, "Color:", weatherColor);
       animatedIcon(CurWeather, weatherColor);
-      
-});
+  })
+  .catch(function(error) {
+      console.error("Error fetching weather:", error);
+  });
 
 let CurWeather = "";
 let weatherColor = "";
+let currentTempCelsius = 0;
+let currentTempFahrenheit = 0;
+let showingFahrenheit = true;
 
 window.addEventListener("load", function(){
     //animatedIcon(CurWeather);
+    const tempElement = document.getElementById("tempVal");
+    if(tempElement) {
+        tempElement.style.cursor = "pointer";
+        tempElement.addEventListener("click", toggleTemperatureUnit);
+    }
 });
 
 function updateTempVal(kelvin){
     var temp = parseInt(kelvin);
-    var celsius = temp - 273.15;
-    celsius = Math.trunc(celsius);
-    var fahrenheit = Math.round(celsius + 33.8);
-    var cel_value = celsius.toString() + " C";
-    var fah_value = fahrenheit.toString() + " F";
-    //console.log("TEMP: " + result)
-    var final_val = cel_value + " | " + fah_value;
-    document.getElementById("tempVal").innerHTML = final_val;
+    currentTempCelsius = Math.trunc(temp - 273.15);
+    currentTempFahrenheit = Math.round(currentTempCelsius + 33.8);
+
+    showingFahrenheit = true;
+    displayTemperature();
+}
+
+function displayTemperature(){
+    const tempElement = document.getElementById("tempVal");
+    if(showingFahrenheit) {
+        tempElement.innerHTML = currentTempFahrenheit + "°F";
+    } else {
+        tempElement.innerHTML = currentTempCelsius + "°C";
+    }
+}
+
+function toggleTemperatureUnit(){
+    const tempElement = document.getElementById("tempVal");
+    tempElement.classList.add("toggling");
+
+    setTimeout(() => {
+        showingFahrenheit = !showingFahrenheit;
+        displayTemperature();
+    }, 200);
+
+    setTimeout(() => {
+        tempElement.classList.remove("toggling");
+    }, 400);
 }
 
 
 
 function determineWeatherIcon(cond, icon){
+    const metalGray = "#8a8a8a";
+
     switch (icon){
         case "01d":
-            weatherColor = "GOLD";
+            weatherColor = metalGray;
             CurWeather = "clear-day";
             break;
         case "01n":
-            weatherColor = "MIDNIGHTBLUE";
+            weatherColor = metalGray;
             CurWeather = "clear-night";
             break;
         case "02d":
-            weatherColor = "MOCCASIN";
+            weatherColor = metalGray;
             CurWeather = "partly-cloudy-day";
             break;
         case "03d":
-            weatherColor = "MOCCASIN";
+            weatherColor = metalGray;
             CurWeather = "partly-cloudy-day";
             break;
         case "04d":
-            weatherColor = "MOCCASIN";
+            weatherColor = metalGray;
             CurWeather = "partly-cloudy-day";
             break;
         case "02n":
-            weatherColor = "REBECCAPURPLE";
+            weatherColor = metalGray;
             CurWeather = "partly-cloudy-night";
             break;
         case "03n":
-            weatherColor = "REBECCAPURPLE";
+            weatherColor = metalGray;
             CurWeather = "partly-cloudy-night";
             break;
         case "04n":
-            weatherColor = "REBECCAPURPLE";
+            weatherColor = metalGray;
             CurWeather = "partly-cloudy-night";
             break;
-    }   
+    }
     switch(cond){
         case "Rain":
-            weatherColor = "SLATEBLUE";
+            weatherColor = metalGray;
             CurWeather = "rain";
             break;
         case "Thunderstorm":
-            weatherColor = "PERU";
+            weatherColor = metalGray;
             CurWeather = "cloudy";
             break;
         case "Drizzle":
-            weatherColor = "SKYBLUE";
+            weatherColor = metalGray;
             CurWeather = "sleet";
             break;
         case "Snow":
-            weatherColor = "SNOW";
+            weatherColor = metalGray;
             CurWeather = "snow";
             break;
         case "Wind":
-            weatherColor = "LAVENDER";
+            weatherColor = metalGray;
             CurWeather = "wind";
             break;
         case "Fog":
-            weatherColor = "LAVENDER";
+            weatherColor = metalGray;
             CurWeather = "fog";
             break;
     }

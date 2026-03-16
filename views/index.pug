@@ -6,10 +6,9 @@ block layout-content
         div(id="wrapper")
             // HEADER
             header(id="header" style="margin-bottom: 30px")
-                div(class="inner")
-                    // LOGO
-                    a(href="#" class="icon solid fa-dove fa-2x")
-                        span(class="title" style="margin-left: 10px") DASHBOARD
+                div(class="inner" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: center; padding-bottom: 15px;")
+                    // DARK MODE TOGGLE
+                    button(id="darkModeToggle" class="walkman-btn" title="Toggle dark mode")
                     //- // Nav
                     //- nav
                     //-     ul
@@ -27,33 +26,55 @@ block layout-content
             // MAIN
             div(id="main")
                 div(class="inner")
-                    header
-                        h2 WELCOME
-                        p
-                            h1(style="font-style: italic") HUGO RENZZO OLCESE
-                        b Currently Feels Like:
+                    div(class="weather-section")
+                        div(class="weather-row")
                             span(class="image right" id="image_right")
-                                    canvas(id="icon1" width="300" height="300")
-                        br
-                        p   
-                            p(id="tempVal") 0.0
-                        p(id="InsQuote") How are you?
+                                    canvas(id="icon1" width="600" height="600" style="max-width: 100%; height: auto;")
+                            div(class="temp-container")
+                                b Currently Feels Like:
+                                p(id="tempVal") 0.0
+                        p(id="InsQuote" class="bible-verse") How are you?
                     br
-                    
+
+                    div(id="githubStats")
+                        div(class="github-stats-header")
+                            img(id="githubAvatar" class="github-avatar" src="" alt="GitHub Avatar")
+                            div(class="github-profile-info")
+                                h3(id="githubName") GitHub Profile
+                                p(id="githubBio") Loading...
+
+                        div(class="github-stats-row")
+                            div(class="github-stat")
+                                div(class="github-stat-number" id="githubRepos") -
+                                div(class="github-stat-label") Repositories
+                            div(class="github-stat")
+                                div(class="github-stat-number" id="githubFollowers") -
+                                div(class="github-stat-label") Followers
+
+                        div(class="github-repos-title") Recent Repositories
+                        div(id="recentRepos")
+                            p Loading recent repositories...
+                    br
+
+                    div(id="commitGraph")
+                        div(id="heatmapContainer")
+                            p Loading contribution graph...
+                    br
+
                     h2 Quick Links:
                     section
                         ul(class="icons")
                             li
-                                a(href="https://github.com/Renzzo98?tab=repositories" class="icon brands style2 fa-github fa-lg")
+                                a(href="https://github.com/Renzzo98?tab=repositories" class="icon brands style2 fa-github fa-lg quick-link-btn")
                                     span(class="label") Github
                             li
-                                a(href="https://www.youtube.com" class="icon brands style2 fa-youtube fa-lg")
+                                a(href="https://www.youtube.com" class="icon brands style2 fa-youtube fa-lg quick-link-btn")
                                     span(class="label") Youtube
                             li
-                                a(href="https://www.reddit.com" class="icon brands style2 fa-reddit-alien fa-lg")
+                                a(href="https://www.reddit.com" class="icon brands style2 fa-reddit-alien fa-lg quick-link-btn")
                                     span(class="label") Reddit
                             li
-                                a(href="https://flipboard.com" class="icon brands style2 fa-flipboard fa-lg")
+                                a(href="https://flipboard.com" class="icon brands style2 fa-flipboard fa-lg quick-link-btn")
                                     span(class="label") Flipboard∂
                             //- li
                             //-     a(href="https://mail.google.com/mail/u/1/#inbox" class="icon brands style2 fa-google fa-lg")

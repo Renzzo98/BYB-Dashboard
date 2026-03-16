@@ -1,7 +1,222 @@
 /* public/style.css */
 
+:root {
+    --bg-primary: white;
+    --bg-secondary: #f5f5f5;
+    --text-primary: #222;
+    --text-secondary: #666;
+    --border-color: #ddd;
+    --header-bg: white;
+}
+
+body.dark-mode {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --border-color: #444;
+    --header-bg: #1a1a1a;
+}
+
 body {
-    background: white;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#header {
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.View {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#main {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#main .inner {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    background: var(--bg-primary);
+}
+
+#main {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+#main .inner {
+    background: var(--bg-primary);
+}
+
+#main h2 {
+    color: var(--text-primary);
+}
+
+#main p {
+    color: var(--text-secondary);
+}
+
+.walkman-btn {
+    width: 45px;
+    height: 35px;
+    padding: 0;
+    border: none;
+    background: linear-gradient(145deg, #e8e8e8, #c5c5c5);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.8),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.3),
+        3px 3px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.walkman-btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: inherit;
+    border-radius: 3px;
+    z-index: -1;
+}
+
+.walkman-btn:hover {
+    box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.9),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.4),
+        3px 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.walkman-btn:active {
+    box-shadow:
+        inset 2px 2px 3px rgba(0, 0, 0, 0.3),
+        inset -1px -1px 2px rgba(255, 255, 255, 0.5),
+        1px 1px 3px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
+}
+
+body.dark-mode .walkman-btn {
+    background: linear-gradient(145deg, #4a4a4a, #2a2a2a);
+}
+
+/* Quick Link Buttons */
+.quick-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 0 !important;
+    border: none;
+    background: linear-gradient(145deg, #e8e8e8, #c5c5c5) !important;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.8),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.3),
+        3px 3px 8px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.15s ease;
+    color: #333 !important;
+    text-decoration: none;
+}
+
+.quick-link-btn:hover {
+    box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.9),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.4),
+        3px 3px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+.quick-link-btn:active {
+    box-shadow:
+        inset 2px 2px 3px rgba(0, 0, 0, 0.3),
+        inset -1px -1px 2px rgba(255, 255, 255, 0.5),
+        1px 1px 3px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(2px);
+}
+
+body.dark-mode .quick-link-btn {
+    background: linear-gradient(145deg, #4a4a4a, #2a2a2a) !important;
+    color: #e0e0e0 !important;
+    box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.2),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.5),
+        3px 3px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .quick-link-btn:hover {
+    box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.6),
+        3px 3px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+.icons a {
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.icons a:hover {
+    background: var(--bg-secondary);
+}
+
+article {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+article h2 {
+    color: var(--text-primary);
+}
+
+article .content {
+    color: var(--text-secondary);
+}
+
+#footer {
+    background: var(--header-bg) !important;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+#footer > .inner .copyright {
+    color: var(--text-secondary) !important;
+}
+
+#footer > .inner .copyright a {
+    color: var(--text-secondary);
 }
 
 .sidenav {
@@ -38,54 +253,649 @@ body {
   margin-left: 50px;
 }
 
-#weatherCondImg{
+#weatherCondImg {
   width: 150px;
   height: 150px;
 }
 
-#tempVal{
+.weather-section {
+  margin: 2rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.weather-section b {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.temp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.temp-container b {
+  margin: 0;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.temp-container p {
+  margin: 0.3rem 0 0 0;
+  font-size: 10rem;
+}
+
+.bible-verse {
+  text-align: center;
+  font-style: italic;
+  margin-top: 1.5rem !important;
+}
+
+#image_right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+#image_right canvas {
+  max-width: 100%;
+  height: auto;
+  filter:
+    drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25))
+    drop-shadow(0 5px 10px rgba(0, 0, 0, 0.15))
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease, transform 0.3s ease;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+
+#image_right canvas:hover {
+  filter:
+    drop-shadow(0 15px 30px rgba(0, 0, 0, 0.35))
+    drop-shadow(0 8px 15px rgba(0, 0, 0, 0.2))
+    drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+  transform: perspective(1000px) translateY(-4px) scale(1.02);
+}
+
+#tempVal {
   font-size: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+@keyframes tempToggle {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#tempVal.toggling {
+  animation: tempToggle 0.4s ease;
 }
 
 #InsQuote{
   font-size: 30px;
 }
 
-
-@media only screen 
-    and (device-width : 375px) 
-    and (device-height : 812px) 
-    and (-webkit-device-pixel-ratio : 3)
-    and (orientation: landscape) {
-
-  .styleName {
-      height: 60em
-  }
-  
+/* GitHub Stats */
+#githubStats {
+  display: none;
 }
 
-@media only screen 
-    and (device-width : 375px) 
-    and (device-height : 812px) 
-    and (-webkit-device-pixel-ratio : 3) {
+.github-stats-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.github-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+}
+
+.github-profile-info h3 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.github-profile-info p {
+  margin: 0.25rem 0 0 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.github-stats-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.github-stat {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-radius: 5px;
+}
+
+.github-stat-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.github-stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.github-repos-title {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin: 1.5rem 0 1rem 0;
+  font-weight: bold;
+}
+
+#recentRepos {
+  display: grid;
+  gap: 1rem;
+}
+
+.github-repo-item {
+  padding: 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.github-repo-item:hover {
+  background: var(--bg-secondary);
+  border-color: #0366d6;
+}
+
+.github-repo-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.github-repo-name:hover {
+  text-decoration: underline;
+}
+
+.github-repo-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0.5rem 0;
+}
+
+.github-repo-stars,
+.github-repo-updated {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-right: 1rem;
+}
+
+/* Commit Graph */
+#commitGraph {
+  margin: 1rem 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#commitGraph h3 {
+  margin: 0.5rem 0 0.75rem 0 !important;
+  padding: 0 !important;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+#heatmapContainer {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--text-secondary);
+  display: block;
+  width: 100%;
+  background: transparent !important;
+}
+
+.heatmap-grid {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.heatmap-day-labels {
+  display: flex;
+  margin-bottom: 0.25rem;
+}
+
+.heatmap-day-labels div {
+  width: 10px;
+  height: 10px;
+  margin: 0 1px;
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.heatmap-day-labels div:first-child {
+  width: 30px;
+  padding-right: 4px;
+}
+
+.heatmap-months {
+  display: flex;
+  margin-bottom: 2px;
+}
+
+.heatmap-month-label {
+  width: auto;
+  padding-right: 8px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.heatmap-cells {
+  display: flex;
+  gap: 1px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.heatmap-week {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.heatmap-day {
+  width: 10px;
+  height: 10px;
+  border-radius: 1px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.1s ease;
+}
+
+.heatmap-day:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.heatmap-day.empty {
+  background-color: transparent;
+}
+
+.heatmap-tooltip {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 0.5rem;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.heatmap-legend-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 1px;
+}
+
+/* Mobile - Commit Graph */
+@media (max-width: 768px) {
+  #commitGraph {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  #heatmapContainer {
+    width: 100%;
+  }
+
+  .heatmap-day-labels div {
+    font-size: 0.65rem;
+  }
+
+  .heatmap-month-label {
+    font-size: 0.6rem;
+    padding-right: 6px;
+  }
+
+  .heatmap-day {
+    width: 12px;
+    height: 12px;
+  }
+
+  .heatmap-legend-cell {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  #main .inner {
+    padding: 1.5rem;
+  }
+
+  .weather-row {
+    justify-content: center;
+  }
 
   #image_right {
-      max-width: 100%;
+    flex: 0 0 auto;
   }
-  
-  #icon1{
-    width: 150px !important;
-    height: 150px !important;
+
+  .temp-container {
+    flex: 0 0 auto;
+  }
+
+  .temp-container p {
+    font-size: 7rem;
+  }
+
+  .temp-container b {
+    font-size: 0.8rem;
+  }
+
+  #header .inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .walkman-btn {
+    width: 40px;
+    height: 30px;
   }
 
   #tempVal {
-    font-size: 35px;
+    font-size: 32px;
   }
 
-  #InsQuote{
+  #InsQuote {
     font-size: 20px;
   }
-  
 
+  #icon1 {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  #image_right {
+    max-width: 100%;
+  }
+
+  .icons li {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .quick-link-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .icons li {
+    list-style: none;
+  }
+
+  .tiles {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  article {
+    margin-bottom: 0;
+  }
+
+  article .image {
+    max-height: 250px;
+    overflow: hidden;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .temp-container p {
+    font-size: 5rem;
+  }
+
+  .temp-container b {
+    font-size: 0.75rem;
+  }
+
+  #commitGraph h3 {
+    font-size: 0.85rem;
+    margin: 0.25rem 0 0.5rem 0;
+  }
+
+  .heatmap-day-labels div {
+    font-size: 0.6rem;
+    width: 10px;
+    height: 10px;
+  }
+
+  .heatmap-day-labels div:first-child {
+    width: 20px;
+    padding-right: 2px;
+  }
+
+  .heatmap-month-label {
+    font-size: 0.55rem;
+    padding-right: 4px;
+  }
+
+  .heatmap-day {
+    width: 10px;
+    height: 10px;
+  }
+
+  .heatmap-legend {
+    font-size: 0.6rem;
+    gap: 2px;
+  }
+
+  .heatmap-legend-cell {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  #main .inner {
+    padding: 1rem;
+  }
+
+  #header {
+    margin-bottom: 15px !important;
+  }
+
+  #header .inner {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  #tempVal {
+    font-size: 24px;
+  }
+
+  #InsQuote {
+    font-size: 16px;
+  }
+
+  #icon1 {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .walkman-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .quick-link-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 12px;
+  }
+
+  .icons li {
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .tiles {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  article {
+    margin-bottom: 0;
+  }
+
+  article .image {
+    max-height: 200px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+    padding: 8px 8px 8px 20px;
+  }
+
+  #wrapper {
+    margin: 0;
+    padding: 0;
+  }
+
+  #main {
+    margin: 0;
+  }
+
+  #footer .inner {
+    padding: 1rem;
+  }
+
+  #footer ul.copyright {
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  #tempVal {
+    font-size: 20px;
+  }
+
+  #InsQuote {
+    font-size: 14px;
+  }
+
+  #icon1 {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .quick-link-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 10px;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .tiles {
+    grid-template-columns: 1fr;
+  }
 }
 
