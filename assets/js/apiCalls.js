@@ -1,33 +1,3 @@
-// Bible verses for daily inspiration
-const bibleVerses = [
-  "For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope. - Jeremiah 29:11",
-  "Trust in the Lord with all your heart and lean not on your own understanding. - Proverbs 3:5",
-  "I can do all things through Christ who strengthens me. - Philippians 4:13",
-  "The Lord is my shepherd; I shall not want. - Psalm 23:1",
-  "Come to me, all you who are weary and burdened, and I will give you rest. - Matthew 11:28",
-  "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. - Philippians 4:6",
-  "For God so loved the world that he gave his one and only Son. - John 3:16",
-  "Be strong and courageous. Do not be afraid or terrified because of them, for the Lord your God goes with you. - Deuteronomy 31:6",
-  "What, then, shall we say in response to these things? If God is for us, who can be against us? - Romans 8:31",
-  "Therefore do not worry about tomorrow, for tomorrow will worry about itself. - Matthew 6:34",
-  "Blessed is the one who trusts in the Lord, whose confidence is in him. - Jeremiah 17:7",
-  "The Lord hears his people when they call to him for help. - Psalm 34:17",
-  "Peace I leave with you; my peace I give you. I do not give to you as the world gives. - John 14:27",
-  "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. - Matthew 7:7",
-  "Let all that you do be done in love. - 1 Corinthians 16:14",
-  "Rejoice in the Lord always. I will say it again: Rejoice! - Philippians 4:4",
-  "Love the Lord your God with all your heart and with all your soul and with all your mind. - Matthew 22:37",
-  "For the Lord will not cast off his people, nor will he forsake his inheritance. - Psalm 94:14",
-  "I have told you all this, so that you may have peace in me. Here on earth you will have many trials and sorrows. But take heart, because I have overcome the world. - John 16:33",
-  "Casting all your anxieties on him, because he cares for you. - 1 Peter 5:7"
-];
-
-function displayRandomBibleVerse() {
-  const randomIndex = Math.floor(Math.random() * bibleVerses.length);
-  document.getElementById("InsQuote").innerHTML = bibleVerses[randomIndex];
-}
-
-displayRandomBibleVerse();
 
 fetch('/api/weather')
   .then(function(response) {

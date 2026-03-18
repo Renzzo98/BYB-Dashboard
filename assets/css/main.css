@@ -3538,14 +3538,10 @@ body.is-menu-visible #menu .close {
   width: 100%;
   max-width: 68em;
   margin: 0 auto;
-  padding: 0 2.5em;
 }
 
 @media screen and (max-width: 736px) {
   /* line 11, ../../../../../../../../../../../../../Users/hugorenzzoolcese/Projects/ExpressExample/WebAppTemplate/assets/sass/layout/_wrapper.scss */
-  #wrapper > * > .inner {
-    padding: 0 1.25em;
-  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,5 +1,10 @@
 /* public/style.css */
 
+@font-face {
+  font-family: 'Alarm Clock';
+  src: url('/fonts/alarm\ clock.ttf') format('truetype');
+}
+
 :root {
     --bg-primary: white;
     --bg-secondary: #f5f5f5;
@@ -57,6 +62,7 @@ body {
 #main .inner {
     max-width: 100%;
     box-sizing: border-box;
+    padding: 1rem;
 }
 
 #wrapper {
@@ -270,7 +276,6 @@ article .content {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
   margin-bottom: 0;
   flex-wrap: wrap;
 }
@@ -290,7 +295,7 @@ article .content {
 .temp-container b {
   margin: 0;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 4vw;
 }
 
 .temp-container p {
@@ -331,7 +336,7 @@ article .content {
 }
 
 #tempVal {
-  font-size: 50px;
+  font-size: 10vw;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -357,6 +362,173 @@ article .content {
 
 #InsQuote{
   font-size: 30px;
+}
+
+.clock-display {
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0 1rem 0;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.clock-time {
+  font-family: 'Alarm Clock', monospace;
+  font-weight: bold;
+  line-height: 0.9;
+  text-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.clock-hours,
+.clock-minutes {
+  font-size: 36vw;
+}
+
+.clock-colon {
+  font-size: 9rem;
+}
+
+.clock-date {
+  font-size: 6vw;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: row;
+  line-height: 1.2;
+}
+
+.clock-day,
+.clock-month {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.scroll-seconds {
+  overflow: hidden;
+  height: 1em;
+  margin-top: 0.3rem;
+  font-size: 7vw;
+  font-weight: bold;
+  font-family: 'Alarm Clock', monospace;
+  color: var(--text-primary);
+}
+
+.scroll-drum {
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-item {
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+
+.clock-meta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .clock-time {
+    font-size: 5rem;
+  }
+
+  .clock-hours,
+  .clock-minutes {
+    font-size: 34vw;
+  }
+
+  .clock-colon {
+    font-size: 5rem;
+  }
+
+  .clock-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .clock-day,
+  .clock-month {
+    display: block;
+    font-size: 8vw;
+  }
+
+  .scroll-seconds {
+    font-size: 20vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .clock-display {
+    width: 100%;
+    padding: 2rem 0 1rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: left;
+  }
+
+  .clock-time {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    flex-shrink: 0;
+  }
+
+  .clock-hours,
+  .clock-minutes {
+    font-size: 40vw;
+    display: block;
+    line-height: 1;
+  }
+
+  .clock-colon {
+    display: none;
+  }
+
+  .clock-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.3rem;
+  }
+
+  .clock-date {
+    font-size: 5vw;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+  .clock-day,
+  .clock-month {
+    display: block;
+    font-size: 12vw;
+  }
+
+  .scroll-seconds {
+    font-size: 24vw;
+  }
 }
 
 /* GitHub Stats */
@@ -655,7 +827,7 @@ article .content {
   }
 
   .temp-container b {
-    font-size: 0.8rem;
+    font-size: 4vw;
   }
 
   #header .inner {
@@ -669,7 +841,7 @@ article .content {
   }
 
   #tempVal {
-    font-size: 32px;
+    font-size: 14vw;
   }
 
   #InsQuote {
@@ -677,8 +849,8 @@ article .content {
   }
 
   #icon1 {
-    width: 200px !important;
-    height: 200px !important;
+    width: 50vw;
+    height: 50vw;
   }
 
   #image_right {
@@ -730,7 +902,7 @@ article .content {
   }
 
   .temp-container b {
-    font-size: 0.75rem;
+    font-size: 4vw;
   }
 
   #commitGraph h3 {
@@ -801,7 +973,7 @@ article .content {
   }
 
   #tempVal {
-    font-size: 24px;
+    font-size: 18vw;
   }
 
   #InsQuote {
@@ -809,8 +981,8 @@ article .content {
   }
 
   #icon1 {
-    width: 120px !important;
-    height: 120px !important;
+    width: 40vw;
+    height: 40vw;
   }
 
   .walkman-btn {
@@ -826,7 +998,7 @@ article .content {
     min-width: 44px;
     min-height: 44px;
     font-size: 12px;
-  }
+  } 
 
   .icons li {
     margin-right: 0.3rem;
@@ -872,7 +1044,7 @@ article .content {
 /* Extra small phones */
 @media (max-width: 360px) {
   #tempVal {
-    font-size: 20px;
+    font-size: 20vw;
   }
 
   #InsQuote {
