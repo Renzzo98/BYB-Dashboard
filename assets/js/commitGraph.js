@@ -3,18 +3,22 @@ fetch('/api/commits')
   .then(commitMap => {
     const container = document.getElementById('heatmapContainer');
     const today = new Date();
-    const threeMonthsAgo = new Date(today);
-    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+    const ninetyDaysAgo = new Date(today);
+    ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
 
     const NUM_WEEKS = 13;
     const GAP = 2;
+    // Only render Mon (1), Wed (3), Fri (5)
+    const VISIBLE_DAYS = [1, 3, 5];
 
-    // Calculate cell size to fill the container width
     const containerWidth = container.parentElement.offsetWidth || 600;
     const cellSize = Math.floor((containerWidth - GAP * NUM_WEEKS) / NUM_WEEKS);
 
-    const startDate = new Date(threeMonthsAgo);
-    startDate.setDate(startDate.getDate() - startDate.getDay() + 1);
+    // Start from the first Monday ON or AFTER 90 days ago
+    const startDate = new Date(ninetyDaysAgo);
+    const day = startDate.getDay();
+    const daysUntilMonday = day === 1 ? 0 : day === 0 ? 1 : 8 - day;
+    startDate.setDate(startDate.getDate() + daysUntilMonday);
 
     let currentMonth = -1;
     const monthLabels = [];
@@ -25,6 +29,14 @@ fetch('/api/commits')
     for (let i = 0; i < NUM_WEEKS; i++) {
       const weekStart = new Date(startDate);
       weekStart.setDate(weekStart.getDate() + i * 7);
+
+      // Skip weeks where no visible days fall within the range
+      const hasValidDay = VISIBLE_DAYS.some(d => {
+        const date = new Date(weekStart);
+        date.setDate(date.getDate() + d);
+        return date >= ninetyDaysAgo && date <= today;
+      });
+      if (!hasValidDay) continue;
 
       if (weekStart.getMonth() !== currentMonth) {
         currentMonth = weekStart.getMonth();
@@ -43,7 +55,7 @@ fetch('/api/commits')
       week.className = 'heatmap-week';
       week.style.width = cellSize + 'px';
 
-      for (let dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
+      for (const dayOfWeek of VISIBLE_DAYS) {
         const date = new Date(weekStart);
         date.setDate(date.getDate() + dayOfWeek);
 
@@ -52,7 +64,7 @@ fetch('/api/commits')
         cell.style.width = cellSize + 'px';
         cell.style.height = cellSize + 'px';
 
-        if (date > today || date < threeMonthsAgo) {
+        if (date > today || date < ninetyDaysAgo) {
           cell.style.backgroundColor = 'transparent';
           cell.style.border = 'none';
         } else {
@@ -86,19 +98,6 @@ fetch('/api/commits')
     heatmap.className = 'heatmap-grid';
     heatmap.appendChild(monthRow);
     heatmap.appendChild(cells);
-
-    const legend = document.createElement('div');
-    legend.className = 'heatmap-legend';
-    legend.innerHTML = `
-      <span>Less</span>
-      <div class="heatmap-legend-cell" style="background-color: #ebedf0; width:${cellSize}px; height:${cellSize}px;"></div>
-      <div class="heatmap-legend-cell" style="background-color: #c6e48b; width:${cellSize}px; height:${cellSize}px;"></div>
-      <div class="heatmap-legend-cell" style="background-color: #7bc96f; width:${cellSize}px; height:${cellSize}px;"></div>
-      <div class="heatmap-legend-cell" style="background-color: #239a3b; width:${cellSize}px; height:${cellSize}px;"></div>
-      <div class="heatmap-legend-cell" style="background-color: #196127; width:${cellSize}px; height:${cellSize}px;"></div>
-      <span>More</span>
-    `;
-    heatmap.appendChild(legend);
 
     container.innerHTML = '';
     container.appendChild(heatmap);

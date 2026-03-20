@@ -2482,7 +2482,6 @@ input[type="radio"] + label:before {
 /* line 35, ../../../../../../../../../../../../../Users/hugorenzzoolcese/Projects/ExpressExample/WebAppTemplate/assets/sass/components/_image.scss */
 .image.right {
   float: right;
-  padding: 0 0 1em 1.5em;
   top: 0.25em;
 }
 
@@ -3016,12 +3015,6 @@ body.is-touch .tiles article .content {
   }
 }
 
-/* Header */
-/* line 9, ../../../../../../../../../../../../../Users/hugorenzzoolcese/Projects/ExpressExample/WebAppTemplate/assets/sass/layout/_header.scss */
-#header {
-  padding: 8em 0 0.1em 0 ;
-}
-
 /* line 12, ../../../../../../../../../../../../../Users/hugorenzzoolcese/Projects/ExpressExample/WebAppTemplate/assets/sass/layout/_header.scss */
 #header .logo {
   display: block;
@@ -3150,10 +3143,6 @@ body.is-touch .tiles article .content {
 }
 
 @media screen and (max-width: 736px) {
-  /* line 9, ../../../../../../../../../../../../../Users/hugorenzzoolcese/Projects/ExpressExample/WebAppTemplate/assets/sass/layout/_header.scss */
-  #header {
-    padding: 4em 0 0.1em 0 ;
-  }
   /* line 121, ../../../../../../../../../../../../../Users/hugorenzzoolcese/Projects/ExpressExample/WebAppTemplate/assets/sass/layout/_header.scss */
   #header nav {
     right: 0.5em;

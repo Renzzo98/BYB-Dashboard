@@ -98,7 +98,7 @@ app.get("/api/commits", async (req, res) => {
     const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
 
     const sixMonthsAgo = new Date();
-    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    sixMonthsAgo.setDate(sixMonthsAgo.getDate() - 90);
 
     // Use GraphQL with token to get exact contribution calendar
     if (token) {
