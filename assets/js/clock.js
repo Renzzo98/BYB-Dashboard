@@ -25,7 +25,7 @@ function buildClock() {
         <div class="clock-meta">
             <div class="clock-date">
                 <span class="clock-day">${dayName},</span>
-                <span class="clock-month">${date} ${month}</span>
+                <span class="clock-month"> ${date} ${month}</span>
             </div>
             <div class="scroll-seconds">
                 <div class="scroll-drum" id="scroll-drum">

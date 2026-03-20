@@ -5,8 +5,15 @@ block layout-content
         // Wrapper
         div(id="wrapper")
             // HEADER
-            header(id="header" style="margin-bottom: 30px")
-                div(class="inner" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: center; padding-bottom: 15px;")
+            header(id="header")
+                div(class="inner header-inner")
+                    div(class="weather-section")
+                        div(class="weather-row")
+                            span(class="image right" id="image_right")
+                                    canvas(id="icon1" width="80" height="80" style="max-width: 100%; height: auto;")
+                            div(class="temp-container")
+                                b(class="weather-label") Currently Feels Like:
+                                p(id="tempVal") 0.0
                     // DARK MODE TOGGLE
                     button(id="darkModeToggle" class="walkman-btn" title="Toggle dark mode")
                     //- // Nav
@@ -27,14 +34,6 @@ block layout-content
             div(id="main")
                 div(id="clock" class="clock-display")
                 div(class="inner")
-                    div(class="weather-section")
-                        div(class="weather-row")
-                            span(class="image right" id="image_right")
-                                    canvas(id="icon1" width="600" height="600" style="max-width: 100%; height: auto;")
-                            div(class="temp-container")
-                                b Currently Feels Like:
-                                p(id="tempVal") 0.0
-
                     div(id="githubStats")
                         div(class="github-stats-header")
                             img(id="githubAvatar" class="github-avatar" src="" alt="GitHub Avatar")
@@ -172,8 +171,3 @@ block layout-content
                                 div(class="content")
                                     p The Offical Hofstra University Portal
             
-            // FOOTER
-            footer(id="footer")
-                div(class="inner")
-                    ul(class="copyright")
-                        li Designed by Hugo Renzzo Olcese. All rights reserved.
